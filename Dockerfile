@@ -19,7 +19,9 @@ RUN apk add --update curl &&\
 ADD tomcat-users.xml /opt/tomcat/conf/
 RUN sed -i 's/52428800/5242880000/g' /opt/tomcat/webapps/manager/WEB-INF/web.xml 
 
-ADD jdw/tomcat-docker/target/tomcat-docker.war /opt/tomcat/webapps/tomcat-docker.war
+
+# RUN rm -rf /opt/tomcat/webapps/ROOT
+# ADD hello-tomcat/target/tomcat-docker.war /opt/tomcat/webapps/ROOT.war
 
 # Set environment
 ENV CATALINA_HOME /opt/tomcat
